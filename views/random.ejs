@@ -3,7 +3,7 @@
     <% if(randomrecipe!=''){ %>
         <a href="/recipe/<%- randomrecipe._id%>" class="col text-center catogery__link">
         <div class="catogery__img catogery__img--large shadow">
-            <img src="/img/<%- randomrecipe.image %>" alt="<%- randomrecipe.name%> " loading="lazy">
+            <img src="/uploads/<%- randomrecipe.image %>" alt="<%- randomrecipe.name%> " loading="lazy">
        </div>
        <div class="pt-1"> <%- randomrecipe.name %></div>
     </a>

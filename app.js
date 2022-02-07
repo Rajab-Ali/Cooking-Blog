@@ -4,6 +4,7 @@ const fileupload = require('express-fileupload')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 const flash = require('connect-flash')
+const busboy=require('connect-busboy')
 
 const app=express()
 const port=process.env.PORT || 3000
@@ -12,6 +13,7 @@ require('dotenv').config()
 
 app.use(express.urlencoded( { extended:true } ))
 app.use(express.static(__dirname+'/public'))
+app.use(busboy())
 app.use(expressLayouts)
 app.use(fileupload())
 app.use(cookieParser('CookingBlogSecure'))

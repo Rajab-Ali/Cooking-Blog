@@ -31,7 +31,7 @@
     <% categoriesbyid.forEach((category,index)=>{ %>
     <a href="/recipe/<%- category._id%>" class="col text-center catogery__link">
         <div class="catogery__img catogery__img--large shadow">
-             <img src="/img/<%- category.image%>" alt="<%- category.name %>" loading="lazy">
+             <img src="/uploads/<%- category.image%>" alt="<%- category.name %>" loading="lazy">
         </div>
         <div class="pt-1"><%- category.name %></div>
     </a>

@@ -90,13 +90,31 @@ async function SubmitRecipe(req,res){
 
 async function SubmitRecipeOnPost(req,res){
   try {
+
+    let imageUploadfile
+    let uploadPath
+    let newImageName
+    if (req.file){
+      console.log('No files where Uploaded.');
+    }
+    else{
+      imageUploadfile = req.files.image
+      newImageName=  imageUploadfile.name
+      console.log('image name: ',newImageName);
+      uploadPath=require('path').resolve('./')+'/public/uploads/'+newImageName
+      console.log(uploadPath);
+      imageUploadfile.mv(uploadPath,(err)=>{
+        if (err) return res.status(500).send({message:err.message || 'error occured'})
+      })
+    }
+
     const newRecipe = {
       "name":req.body.name,
       "description":req.body.description,
       "email":req.body.email, 
       'ingredients':req.body.Indgredients,
       "category":req.body.category,
-      "image":"Almond-stuffed.jpg",
+      "image":newImageName,
     }
     console.log(newRecipe);
     await Recipe.insertMany([newRecipe])

@@ -1,0 +1,14 @@
+<h1 class="pb-4">Random Recipe</h1>
+<div class="row row-cols-2 row-cols-lg-4 row-cols-md-3 g-1 g-lg-3">
+    <% if(randomrecipe!=''){ %>
+        <a href="/recipe/<%- randomrecipe._id%>" class="col text-center catogery__link">
+        <div class="catogery__img catogery__img--large shadow">
+            <img src="/img/<%- randomrecipe.image %>" alt="<%- randomrecipe.name%> " loading="lazy">
+       </div>
+       <div class="pt-1"> <%- randomrecipe.name %></div>
+    </a>
+<%} else {%>
+    <p class="lead mx-auto my-2">No Item found. </p>
+    <% } %>
+
+</div>
